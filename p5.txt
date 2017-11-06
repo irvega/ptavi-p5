@@ -189,13 +189,13 @@ versación anterior:
     4 (dos de video y dos de audio, ambas partes) 
     Se ve en Filter: RTP ->Telephony-RTP-show all
 •¿Cual es su periodicidad?
-
+    
 •¿Cuanto  es  el  valor  maximo  del  delta  y  los  valores  medios  y maximo del jitter?
     Son todos 0 ya que no hay mucho flujo en la red. 
 •¿Podrıas reproducir la conversacion desde Wireshark? ¿Como? Comprueba  que  poniendo 
  un  valor  demasiado  pequeno  para  el buffer de jitter, la conversacion puede no tener 
  la calidad necesaria.
-    
+    Si desde RTP ->Telephony-RTP-show all-Analayzer-player-decode
 •¿Sabrıas decir que tipo de servicio ofrece sip:9999@qxip.net?
     Es un canal de musica. 
 
