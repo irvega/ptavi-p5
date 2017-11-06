@@ -165,28 +165,44 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 Captura de una sesión SIP
 
-Captura una sesión SIP de una conversación con el número SIP sip:9999@qxip.net. Tendrás que dar de alta una cuenta en www.ekiga.net con el navegador. Recuerda también que has de comenzar a capturar tramas antes de arrancar Ekiga para ver todo el proceso en el que participa SIP. Para realizar los siguientes ejercicios, deberás crearte una cuenta en ekiga.net y darte de alta la lanzar la aplicación.
+17.  Dirígete a la web http://www.ekiga.net con el navegador y créate una  cuenta.
+Lanza  Ekiga,  y  config ́uralo  con  los  datos  de  la  cuenta
+que te acabas de crear.  Comprueba que est ́as conectado (En la barra
+al final de la ventana podr ́as ver “Connected”).  Al terminar,  cierra
+completamente Ekiga
+    
 
-17. Observa las diferencias en el inicio de la conversación entre el entorno del laboratorio y el del ejercicio anterior:
- ** ¿Es necesario el uso de DNS y STUN? ¿Por qué?
- ** ¿Son diferentes el registro y la descripción de la sesión?
+18.  Captura una sesion SIP de una conversaci ́on con el n ́umero SIP sip:9999@qxip.net
+Recuerda que has de comenzar a capturar tramas antes de arrancar Ekiga para ver todo el proceso.
 
+19.  Observa las diferencias en el inicio de la conversacion entre el entorno
+del laboratorio y el del ejercicio anterior 3:
+•¿Es necesario el uso de DNS y STUN? ¿Por que?
+    Depende si se ha llamado antes, en mi caso no llame antes y por lo tanto no tenia
+la direccion por lo que necesitas DNS. STUN si para comprobar si estas detras de un NAT, siempre lo comprueba. 
+•¿Son diferentes el registro y la descripcion de la sesion?
+    Sí, ya que la descripcion de sesion viene en el body y el registro en el message header.
 
-18. Identifica las diferencias existentes entre esta conversación y la conversación anterior:
- ** ¿Cuántos flujos tenemos?
- ** ¿Cuál es su periodicidad?
- ** ¿Cuánto es el valor máximo del delta y los valores medios y máximo del jitter?
- ** ¿Podrías reproducir la conversación desde Wireshark? ¿Cómo? Comprueba que poniendo un valor demasiado pequeño para el buffer de jitter, la conversación puede no tener la calidad necesaria.
- ** ¿Sabrías decir qué tipo de servicio ofrece sip:9999@qxip.net?
+20.  Identifica  las  diferencias  existentes  entre  esta  conversaci ́on  y  la  con-
+versación anterior:
+•¿Cuantos flujos tenemos?
+    4 (dos de video y dos de audio, ambas partes) 
+    Se ve en Filter: RTP ->Telephony-RTP-show all
+•¿Cual es su periodicidad?
 
+•¿Cuanto  es  el  valor  maximo  del  delta  y  los  valores  medios  y maximo del jitter?
+    Son todos 0 ya que no hay mucho flujo en la red. 
+•¿Podrıas reproducir la conversacion desde Wireshark? ¿Como? Comprueba  que  poniendo 
+ un  valor  demasiado  pequeno  para  el buffer de jitter, la conversacion puede no tener 
+ la calidad necesaria.
+    
+•¿Sabrıas decir que tipo de servicio ofrece sip:9999@qxip.net?
+    Es un canal de musica. 
 
+21.  Filtra por los paquetes SIP de la captura y guarda unicamente los
+paquetes SIP como p5.pcapng.  Abre el fichero guardado para cercio-
+rarte de que lo has hecho bien.  Deberas guardarlo en un archivo de nombre
+p5.pcapng y anadirlo al repositorio.
 
 [Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
-
-19. Filtra por los paquetes SIP de la captura y guarda únicamente los paquetes SIP como sip.libpcap. Abre el fichero guardado para cerciorarte de que lo has hecho bien. Deberás guardarlo en un archivo de nombre p5.libpcap y añadirlo al repositorio.
-
-[Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
-
-[Al terminar la práctica, realiza un push para sincronizar tu repositorio GitHub]
-
-[Recuerda mirar el guión para ver las instrucciones de entrega]
+[Al terminar la pr ́actica, realiza un push para sincronizar tu repositorio GitHub]
