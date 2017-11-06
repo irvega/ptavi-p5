@@ -97,7 +97,8 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
  ** ¿Se utilizan bits de padding?
         No. Padding: False
  ** ¿Cuál es la periodicidad de los paquetes que se envían?
-        0.02 seg (8000 muestas/seg>1/8k) (No se pude mirar en time porque es cuando te llega)
+        0.02 seg (8000 muestas-seg>160bytes-x --> 160 es la diferencia entre time-derecha
+        en RTP) (No se pude mirar en time porque es cuando te llega)
  ** ¿Cuántos bits/segundo estamos enviando?
         64kbit/s
 
@@ -179,7 +180,7 @@ Recuerda que has de comenzar a capturar tramas antes de arrancar Ekiga para ver 
 del laboratorio y el del ejercicio anterior 3:
 •¿Es necesario el uso de DNS y STUN? ¿Por que?
     Depende si se ha llamado antes, en mi caso no llame antes y por lo tanto no tenia
-la direccion por lo que necesitas DNS. STUN si para comprobar si estas detras de un NAT, siempre lo comprueba. 
+la direccion por lo que necesitas DNS. STUN si para comprobar si estas detras de un NAT, siempre lo comprueba (suele estar) FILTRAR POR CLASSICSTUN. 
 •¿Son diferentes el registro y la descripcion de la sesion?
     Sí, ya que la descripcion de sesion viene en el body y el registro en el message header.
 
@@ -189,9 +190,10 @@ versación anterior:
     4 (dos de video y dos de audio, ambas partes) 
     Se ve en Filter: RTP ->Telephony-RTP-show all
 •¿Cual es su periodicidad?
-    
+    Ideal: 8000bytes-seg, real: 620bytes time stam(derecha)-x --> 0.07
 •¿Cuanto  es  el  valor  maximo  del  delta  y  los  valores  medios  y maximo del jitter?
-    Son todos 0 ya que no hay mucho flujo en la red. 
+    Delta: 36, max jitter: 13.59, medium jitter:13.14. Muchos a cero ya que no hay mucho
+    flujo en la red. 
 •¿Podrıas reproducir la conversacion desde Wireshark? ¿Como? Comprueba  que  poniendo 
  un  valor  demasiado  pequeno  para  el buffer de jitter, la conversacion puede no tener 
  la calidad necesaria.
